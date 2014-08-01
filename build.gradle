@@ -29,7 +29,9 @@ repositories {
 dependencies {
     compile "org.codehaus.groovy:groovy"
     compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework:spring-tx"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.grails:gorm-hibernate4-spring-boot:1.1.0.RELEASE"
     compile "com.h2database:h2"
     compile "org.lazyluke:log4jdbc-remix:0.2.7"
     testCompile "org.springframework.boot:spring-boot-starter-test"
