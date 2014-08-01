@@ -1,0 +1,16 @@
+logging:
+    file: app.log
+
+server:
+    port: 8080
+
+# AOP
+# This is a bug!!!
+# "proxy-target-class" doesn't work.
+# In v1.1.4, "proxyTargetClass" is right! But it's already fixed.
+## so In next version, you can use hyphenated key version according to documenation.
+spring:
+    aop:
+        #proxy-target-class: true
+        proxyTargetClass: true
+
