@@ -38,3 +38,4 @@ class BookmarkController {
         bookmarkService.delete(id)
     }
 }
+
