@@ -16,6 +16,11 @@ class BookmarkController {
     @Autowired
     BookmarkService bookmarkService
 
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    Bookmark getBookmark(@PathVariable("id") Long id) {
+        bookmarkService.get(id)
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     List<Bookmark> getBookmarks() {
         bookmarkService.findAll()
