@@ -2,6 +2,7 @@ package sample
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
@@ -17,18 +18,23 @@ class BookmarkController {
     BookmarkService bookmarkService
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    Bookmark getBookmark(@PathVariable("id") Long id) {
-        bookmarkService.get(id)
+
+    def getBookmark(@PathVariable("id") Long id) {
+        def bookmark = bookmarkService.get(id)
+        if (!bookmark) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND)
+        }
+        return bookmark
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Bookmark> getBookmarks() {
+    def getBookmarks() {
         bookmarkService.findAll()
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    Bookmark postBookmarks(@Validated @RequestBody Bookmark bookmark) {
+    def postBookmarks(@Validated @RequestBody Bookmark bookmark) {
         bookmarkService.save(bookmark)
     }
 

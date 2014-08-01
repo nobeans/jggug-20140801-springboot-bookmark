@@ -11,12 +11,8 @@ class BookmarkService {
     @Autowired
     BookmarkRepository bookmarkRepository
 
-    Bookmark get(long id) throws ResourceNotFoundException {
-        def bookmark = bookmarkRepository.findOne(id)
-        if (!bookmark) {
-            throw new ResourceNotFoundException()
-        }
-        return bookmark
+    Bookmark get(long id) {
+        bookmarkRepository.findOne(id)
     }
 
     List<Bookmark> findAll() {
