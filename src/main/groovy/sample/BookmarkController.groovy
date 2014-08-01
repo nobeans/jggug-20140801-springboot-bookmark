@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api/bookmarks")
-public class BookmarkController {
+class BookmarkController {
     @Autowired
     BookmarkService bookmarkService
 
     @RequestMapping(method = RequestMethod.GET)
     List<Bookmark> getBookmarks() {
-        return bookmarkService.findAll()
+        bookmarkService.findAll()
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     Bookmark postBookmarks(@Validated @RequestBody Bookmark bookmark) {
-        return bookmarkService.save(bookmark)
+        bookmarkService.save(bookmark)
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)

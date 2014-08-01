@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Transactional
-public class BookmarkService {
+class BookmarkService {
     @Autowired
     BookmarkRepository bookmarkRepository
 
