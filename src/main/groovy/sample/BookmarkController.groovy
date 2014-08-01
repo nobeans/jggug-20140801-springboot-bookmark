@@ -17,7 +17,7 @@ class BookmarkController {
     def getBookmark(@PathVariable("id") Long id) {
         def bookmark = Bookmark.get(id)
         if (!bookmark) {
-            throw new ResourceNotFoundException()
+            return new ResponseEntity(HttpStatus.NOT_FOUND)
         }
         return bookmark.toMap()
     }
