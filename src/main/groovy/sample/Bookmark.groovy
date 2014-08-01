@@ -1,7 +1,7 @@
 package sample
 
+import grails.persistence.Entity
 import groovy.transform.ToString
-import grails.persistence.*
 
 @Entity
 @ToString
@@ -13,5 +13,9 @@ class Bookmark {
     static constraints = {
         name blank: false, maxSize: 255
         url blank: false, maxSize: 255
+    }
+
+    String toMap() {
+        return [name: name, url: url]
     }
 }

@@ -19,12 +19,12 @@ class BookmarkController {
         if (!bookmark) {
             throw new ResourceNotFoundException()
         }
-        return [name: bookmark.name, url: bookmark.url]
+        return bookmark.toMap()
     }
 
     @RequestMapping(method = RequestMethod.GET)
     def getBookmarks() {
-        Bookmark.list().collect { [name: it.name, url: it.url] }
+        Bookmark.list().collect { it.toMap() }
     }
 
     @RequestMapping(method = RequestMethod.POST)
