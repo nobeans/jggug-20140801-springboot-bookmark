@@ -18,14 +18,14 @@ public class AppConfig {
     DataSourceProperties properties
     DataSource dataSource
 
-    @ConfigurationProperties(prefix = DataSourceAutoConfiguration.CONFIGURATION_PREFIX)
+//    @ConfigurationProperties(prefix = DataSourceAutoConfiguration.CONFIGURATION_PREFIX)
     @Bean(destroyMethod = "close")
     DataSource realDataSource() {
-        def builder = DataSourceBuilder.create(properties.classLoader)
+        dataSource = DataSourceBuilder.create(properties.classLoader)
             .url(properties.url)
             .username(properties.username)
             .password(properties.password)
-        dataSource = builder.build()
+            .build()
         return dataSource
     }
 
