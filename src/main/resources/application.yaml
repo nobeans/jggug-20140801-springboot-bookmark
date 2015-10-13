@@ -5,19 +5,11 @@ server:
   port: 8080
 
 spring:
-  # This is a bug!!!
-  # "proxy-target-class" doesn't work.
-  # In v1.1.4, "proxyTargetClass" is right! But it's already fixed.
-  ## so In next version, you can use hyphenated key version according to documenation.
   aop:
-    #proxy-target-class: true
-    proxyTargetClass: true
+    proxy-target-class: true
 
-  #datasource:
-  #  driverClassName: org.h2.Driver
-  #  url: jdbc:h2:file:/tmp/bookmark
-  #  username: sa
-  #  password:
-  jpa:
-    hibernate:
-      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bookmark
+    username: postgres
+    password:

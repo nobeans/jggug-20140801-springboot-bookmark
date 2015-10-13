@@ -30,7 +30,11 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.codehaus.groovy:groovy'
-    runtime 'com.h2database:h2'
+
+//    runtime 'com.h2database:h2'
+    runtime 'org.postgresql:postgresql:9.4-1204-jdbc42'
+    runtime 'org.springframework.boot:spring-boot-starter-jdbc'
+
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     //compile "org.lazyluke:log4jdbc-remix:0.2.7" // SQLロギング用
     compile "org.grails:gorm-hibernate4-spring-boot:1.1.0.RELEASE" // GORM
